@@ -1,16 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />  
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stache Phone Custom App</title>
   </head>
-  <body>    
+  <body style="visibility: hidden;">    
+    <h1>Stache Phone Custom App</h1>
+    <p>Custom App for Stache Phone</p>
   </body>
 </html>
 
 <script>  
-  // Needed for Constructor. Dont Delete This.
-  window.STPhone = window.parent.STPhone;
-  console.log("[STPhone] Constructor Loaded On Custom APP")
+    // Needed for Constructor. Dont Delete This.
+    window.STPhone = window.parent.STPhone; // Documentation: https://docs.0resmon.org/0resmon/stache-resources/stache-phone/custom-app#so-what-are-the-available-functions
+    console.log("[STPhone] Constructor Loaded On Custom APP")
+
+    document.addEventListener("DOMContentLoaded", () => {
+        console.log("Page Loaded")
+
+        if (window.self.frameElement.baseURI === 'nui://game/ui/root.html') {
+            console.log("This is the main frame")
+        } else {
+            console.log("This is an Phone")
+            document.body.style.visibility = 'visible';
+        }
+
+        // OR
+
+        // if (window.self.frameElement.baseURI === 'https://cfx-nui-stache-phone/ui/index.html') {
+        //     console.log("This is an Phone")
+        //     document.body.style.visibility = 'visible';
+        // } else {
+        //     console.log("This is the main frame")
+        // }
+
+    });
 </script>
